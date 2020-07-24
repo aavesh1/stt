@@ -1,0 +1,93 @@
+<%- include("partials/header") %>
+
+
+<style > 
+canvas{
+    margin: 0 auto;
+       
+}
+
+body{
+    background: #093028;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #237A57, #093028);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #237A57, #093028); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#container {
+
+width: 60%;
+
+}
+
+h2{
+    margin: 50px auto;
+    color: white;
+    text-decoration: underline;
+    text-align: center;
+}
+
+
+</style>
+
+<h2>Here is Graphical view of your progress</h2>
+<canvas id="myChart"  width="700%" height="300%"  ></canvas>
+
+<script>
+
+
+var data = <%-JSON.stringify(founduser.data)%>;
+var xlabels = [];
+var ylabels = [] ;
+
+data.forEach(function(data) {
+    xlabels.push(data.date);
+    ylabels.push(data.time);
+    
+
+
+});
+
+var ctx = document.getElementById('myChart');
+Chart.defaults.global.defaultFontColor = 'white';
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {labels: xlabels,
+        datasets: [{
+            label: 'Time in minutes',
+            data: ylabels,
+            backgroundColor: 'rgba(38, 247, 94, 0.7)',
+            borderColor: 'rgba(38, 247, 94, 1)',             
+            borderWidth: 1
+        }]
+    },
+    options: { responsive : false , scaleFontColor : "#FFFFFF"
+,        elements: {
+        line: {
+            tension: 0
+        }
+}, scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    }
+
+}
+        
+        
+}); 
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<%- include("partials/footer")%>

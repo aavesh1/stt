@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+        
+      
+        <title>Study Time Tracker</title>
+        </head>
+        <body>
+
+        <nav class="navbar navbar-default" style="background-color: honeydew;">
+            <div class="container-fluid">
+        
+              <div class="navbar-header" >
+                <a class="navbar-brand"  style="color:#005AA7" href="/" >Study Time Tracker</a>
+              </div>
+        
+              <div class="collapse navbar-collapse" >
+                <ul class="nav navbar-nav navbar-right">
+                    
+                  <% if(!currentUser) {%>
+                                   <li><a style="color:#005AA7" href="/login" >Login</a></li>
+                    <li><a style="color:#005AA7" href="/signup">Sign Up</a>
+                    </li> 
+                      <%} else {%>
+                        <li><a href="/sheets/<%=currentUser._id%>">Sheets</a></li>    
+                        <li><a href="#"> Logged in as <%= currentUser.username.toUpperCase() %></a></li>
+                    <li><a href="/logout">Logout</a></li>
+                      <%}%>
+                  </ul>
+        
+              </div>
+          </div>
+          </nav>

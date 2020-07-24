@@ -1,0 +1,32 @@
+<%- include("partials/header") %>
+<div class="container">
+
+    <h1 style="text-align: center; color : white"> Update your data from here</h1>
+
+<div   style="width: 40% ; margin: 25px auto; padding: 25px; background-color:honeydew ;" >
+    
+<form action="/update/<%=data._id%>?_method=put" method="POST"> 
+   
+
+    <div class="form-group">
+<input class="form-control" id="datePicker"  type="date" name="data[date]" value="<%=data.date%>">
+</div>
+<div class="form-group">
+<input class="form-control"    type="text" name="data[topic]" placeholder="What did you study?" value="<%=data.topic%>">
+</div>
+<div class="form-group">
+    <input class="form-control"    type="number" name="data[time]" placeholder="Time in minutes" value="<%=data.time%>">
+    </div>
+
+<div class="form-group">
+<button class = "btn btn-lg btn-success"  >Update </button>
+</div>
+</form>
+<p>
+    <button class="btn btn-success" >  <a href="/sheets/<%=currentUser._id%>"> Go Back </a> </button>
+</p>
+</div>
+</div>
+
+
+<%- include("partials/footer") %>
