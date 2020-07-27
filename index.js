@@ -15,8 +15,6 @@ var Data = require('./models/data')
 
 var sheetsRoutes = require('./routes/sheets.js')
 var homeRoutes = require('./routes/home.js')
-app.use(sheetsRoutes);
-app.use(homeRoutes);
 
 app.set('view engine' , 'ejs')
 
@@ -53,6 +51,8 @@ passport.deserializeUser(User.deserializeUser());
 
 
 
+app.use(sheetsRoutes);
+app.use(homeRoutes);
 
 
 

@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var Data = require('../models/data.js')
+var User = require('../models/user.js')
 
 //To view Add new data form
 router.get('/sheets/:id/new' , isLoggedIn , (req , res)=>{
