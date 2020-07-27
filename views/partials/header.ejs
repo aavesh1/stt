@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html>
     <head> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
         
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Study Time Tracker</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
       
-        <title>Study Time Tracker</title>
         </head>
         <body>
 
-        <nav class="navbar navbar-default" style="background-color: honeydew;">
-            <div class="container-fluid">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="background-color: honeydew;">
+            <div class="container">
         
               <div class="navbar-header" >
                 <a class="navbar-brand"  style="color:#005AA7" href="/" >Study Time Tracker</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
               </div>
         
-              <div class="collapse navbar-collapse" >
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
                 <ul class="nav navbar-nav navbar-right">
                     
                   <% if(!currentUser) {%>
@@ -33,5 +42,6 @@
                   </ul>
         
               </div>
-          </div>
+          
           </nav>
+        </div>

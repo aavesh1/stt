@@ -20,12 +20,12 @@ form{
      text-align: center;
  }
 
- #main {
+/* #main {
   width: 460px;
   height: 800px ;
   margin: 250px auto;
   float: center;
-}
+}*/
 
 
 
@@ -46,8 +46,7 @@ form{
   
 table { 
     margin: 30px auto;
-    border-collapse: collapse;
-    width: 95%;
+/*    width: 65%;*/
   }
   
   td, th {
@@ -66,6 +65,7 @@ table {
 }
 #addbtn{
     background-color: #0e61a8;
-}
+  float: left;
+  }
 
 
