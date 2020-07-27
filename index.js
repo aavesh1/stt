@@ -1,4 +1,3 @@
-
 var express = require('express')
 var app = express()
 var bodyParser = require('body-parser')
@@ -50,7 +49,7 @@ passport.deserializeUser(User.deserializeUser());
     
 
 
-
+//use them at last to avoide errors
 app.use(sheetsRoutes);
 app.use(homeRoutes);
 
