@@ -15,7 +15,7 @@ background: linear-gradient(to right, #237A57, #093028); /* W3C, IE 10+/ Edge, F
 
 #container {
 
-width: 60%;
+width: 100%;
 
 }
 
@@ -29,10 +29,10 @@ h2{
 
 </style>
 
-<div class="chart-conatiner" style="width: 80%;">
+<div class="chart-conatiner" style="width: 95%; max-width: 480px; margin: 10px auto;">
     <h2>Here is Graphical view <br />Of your progress</h2>
 
-    <canvas  id="myChart" width="500px" height="150px" style="display: block; " ></canvas>
+    <canvas  id="myChart" width="95%" height="50%" style="display: block; " ></canvas>
 </div>
 <script>
 
@@ -62,7 +62,7 @@ var myChart = new Chart(ctx, {
             borderWidth: 1
         }]
     },
-    options: { responsive : false , scaleFontColor : "#FFFFFF"
+    options: { responsive : true , scaleFontColor : "#FFFFFF"
 ,        elements: {
         line: {
             tension: 0

@@ -6,6 +6,11 @@ background: linear-gradient(to right, #0c3fe7, #4ca8f3); /* W3C, IE 10+/ Edge, F
 
 }
 
+#regform {
+  width:97% ; height: 60% ; max-width: 500px ; max-height: 600px;   margin: 25px auto; padding: 25px; background-color:honeydew ; text-align: center;
+}
+
+
 form{
   display: inline-block
 }
