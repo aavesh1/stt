@@ -56,4 +56,4 @@ app.use(homeRoutes);
 
 
 
-app.listen(3002)
+app.listen(80)
