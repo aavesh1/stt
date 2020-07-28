@@ -1,13 +1,14 @@
 
 body{
-    background: #005AA7;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #7079f7, #005AA7);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #0c3fe7, #4ca8f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #ff00cc;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #333399, seagreen); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
 }
 
+
 #regform {
-  width:97% ; height: 60% ; max-width: 500px ; max-height: 600px;   margin: 25px auto; padding: 25px; background-color:honeydew ; text-align: center;
+  width:97% ; height: 60% ; max-width: 500px ; max-height: 600px;   margin: 25px auto; padding: 25px;   background: linear-gradient(to right, #2f2f31, #454547);  text-align: center;
 }
 
 
