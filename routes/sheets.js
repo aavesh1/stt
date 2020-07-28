@@ -26,7 +26,9 @@ router.post('/sheets/:id/new' , isLoggedIn , (req , res)=>{
                 else{ user.data.push(created)
                 user.save(function(err){
                         if(err){console.log(err)}
-                        else{res.redirect('/sheets/'+ user._id)}
+                        else{
+                            req.flash('success' , 'Entry Added Succesfully')
+                            res.redirect('/sheets/'+ user._id)}
 
                 })
                 
@@ -83,7 +85,8 @@ Data.findByIdAndUpdate(req.params.id , req.body.data , function(err , updated){
 
 if(err){console.log(err)}
 else{
-        res.redirect('/')
+    req.flash('success' , 'Entry Updated Succesfully')
+    res.redirect('/')
 
 }
 
@@ -97,7 +100,9 @@ router.delete('/delete/:id' ,isLoggedIn , (req , res) =>{
 
     Data.findByIdAndRemove(req.params.id , function(err , deleted){
             if(err) {res.redirect('/')}
-            else {res.redirect('/')}
+            else {
+                req.flash('success' , 'Entry Deleted Succesfully')
+                res.redirect('/')}
     })
 
 
@@ -109,7 +114,9 @@ function isLoggedIn (req , res , next){
     if(req.isAuthenticated()){
         return next();
     }
-else{res.redirect('/login')}
+else{
+    req.flash('error' , 'Please Login First')
+    res.redirect('/login')}
 
 }
 
