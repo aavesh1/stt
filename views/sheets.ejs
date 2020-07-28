@@ -12,10 +12,12 @@
     <div class="text-right">
          <a   class="btn btn-primary" href="/sheets/<%=currentUser._id%>/new"> Add Data </a></button>
          <a   class="btn btn-primary" href="/sheets/<%=currentUser._id%>/graph"> See Graph </a></button>
+        <button class="btn btn-primary" id="stats">Statistics</button>
+     
     </div>
 
-        
-<table class="table"> 
+    
+<table class="table" id="datatable"> 
     <col width="5%">
     <col width="30%"> 
     <col width="40%"> 
@@ -53,6 +55,50 @@
 </table>
 
 
+<div class="change" id="pop">
+
+    <table class="table" > 
+        <col width="70%">
+        
+        <tr>
+           
+          <th>Statistics Criteria</th> 
+          <th>Your Progress</th>
+        </tr>
+        
+                
+        <% var sum =0 ; var days = 0 %>
+        <% founduser.data.forEach(function(data){%>
+
+                <%sum += data.time%>
+                <%days += 1 %>
+                
+            <%})%>  
+            <tr>
+               <td style="text-align: left;"> Total Time Studied (In Mins)</td>
+               <td><%=sum%> (mins)</td>             
+            </tr>
+        
+            <tr>
+                   <td style="text-align: left;">         Total Time Studied (In Hours) </td>
+                   <td> <%=Math.round(sum/60)%> (hrs)</td>
+            </tr>
+    
+            
+            <tr>
+                <td style="text-align: left;">         Daily Average Time(In Hours) </td>
+                <td> <%=Math.round((sum/60)/days)%> (hrs)</td>
+         </tr> 
+            
+
+
+    </table>
+    
+
+</div>
+
+
+
 
 
 
@@ -60,6 +106,23 @@
 
 </div>
 </div>
+<script>
+    $(document).ready(function(){
+      $("#stats").click(function(){
+        $("#datatable").fadeToggle();
+        
+        $("#pop").fadeToggle();
+      
+        if ($(this).text() == "Statistics")
+       $(this).text("Table")
+    else
+       $(this).text("Statistics");
+}
+        
+      );
+    });
+    </script>
+    
 
 
 <%- include("partials/footer") %>
