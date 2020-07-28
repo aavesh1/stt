@@ -23,6 +23,7 @@ router.post('/signup' , (req, res) =>{
 
     User.register(newUser , req.body.password , function(err , user){
         if(err){console.log(err)
+            req.flash('error', 'Username is not available')
             res.redirect('/signup')
         }
         else{
@@ -43,6 +44,7 @@ router.get('/login' , (req , res) =>
 
 router.post('/login', passport.authenticate("local" , {
 
+    
     successRedirect: '/' , failureRedirect:'/login'
 }) 
 , (req , res) =>{}
@@ -51,6 +53,7 @@ router.post('/login', passport.authenticate("local" , {
 router.get('/logout' , (req ,res)=> {
 
     req.logOut() ;
+    req.flash("success" , "Logged you out")
     res.redirect('/')
 })
 
@@ -59,7 +62,9 @@ function isLoggedIn (req , res , next){
     if(req.isAuthenticated()){
         return next();
     }
-else{res.redirect('/login')}
+    req.flash("error" , "Please Login First")
+   
+    res.redirect('/login')
 
 }
 

@@ -8,6 +8,7 @@ var LocalStrategy = require('passport-local')
 var passportLocalMongoose = require('passport-local-mongoose')
 var Chart = require('chart.js')
 var methodOverride = require('method-override')
+var flash = require('connect-flash')
 //Models
 var User = require('./models/user')
 var Data = require('./models/data')
@@ -17,6 +18,7 @@ var homeRoutes = require('./routes/home.js')
 
 app.set('view engine' , 'ejs')
 
+app.use(flash());
 //USE commands
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({extended: true}))
@@ -36,18 +38,19 @@ app.use(require('express-session')({
     app.use(function(req , res , next){
 
         res.locals.currentUser = req.user;
+        res.locals.error = req.flash('error')
+        res.locals.success = req.flash('success')
         next();
 
         })
 
         
 
-passport.use( new LocalStrategy(User.authenticate()));
+passport.use( new LocalStrategy( User.authenticate()));
 
 passport.serializeUser(User.serializeUser()); 
 passport.deserializeUser(User.deserializeUser());
     
-
 
 //use them at last to avoide errors
 app.use(sheetsRoutes);
