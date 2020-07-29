@@ -148,9 +148,11 @@
 </div>
 </div>
 
+<script src="/js/sheetlogic.js">  </script>
+
 <script>
-
-
+//-----------------------GOAL LOGIC---------------------------------/
+    
 var i = 0 
 function move() {
     
@@ -177,31 +179,5 @@ elem.style.width =  width + "%";
 
 
 </script>
-
-
-<script>
-
-    $(document).ready(function(){
-          
-        $("#hidebtn").click(function(){
-            $("#hideinput").fadeToggle();
-        });
-
-
-      $("#stats").click(function(){
-        $("#datatable").fadeToggle();
-        $("#pop").fadeToggle();
-        if ($(this).text() == "Statistics")
-       $(this).text("Table")
-    else
-       $(this).text("Statistics");
-}
-        
-      );
-    });
-
-    </script>
-
-
 
 <%- include("partials/footer") %>

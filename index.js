@@ -17,7 +17,6 @@ var sheetsRoutes = require('./routes/sheets.js')
 var homeRoutes = require('./routes/home.js')
 
 app.set('view engine' , 'ejs')
-
 app.use(flash());
 //USE commands
 app.use(methodOverride("_method"));
