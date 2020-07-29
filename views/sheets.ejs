@@ -81,38 +81,90 @@
         
             <tr>
                    <td style="text-align: left;">         Total Time Studied (In Hours) </td>
-                   <td> <%=Math.round(sum/60)%> (hrs)</td>
+                   <td> <%=Math.floor(sum/60)%> (hrs) <% var hours = Math.floor(sum/60) %></td>
             </tr>
     
             
             <tr>
                 <td style="text-align: left;">         Daily Average Time(In Hours) </td>
-                <td> <%=Math.round((sum/60)/days)%> (hrs)</td>
+                <td> <%=Math.floor((sum/60)/days)%>  (hrs)</td>
          </tr> 
             
-
+        
 
     </table>
     
 
-</div>
 
-
-
-
-
-
+    <h3 class="jumbotron" style=" background: lightcyan; text-align: center; color: #0e61a8 ; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+        You have stufied for <%=days%> days. <br /> Keep up the good work
     
+    
+        <% if(currentUser.goal == 0) {%>
+        <form  action="/<%=currentUser._id%>/goal?_method=put" method="POST"   > 
+           <input type="number" name="goals" placeholder="Enter your goal (in Hours)">
+            <input type="submit">
+            </form>
+        <%}else{%>
+    <p style="margin-top:20px ;"> <strong> Your goal is : <%=currentUser.goal%> hours</strong> </p>
+    <p id="percent"   style="color: #0e61a8;"> Current Progress : <%= Math.round((hours/currentUser.goal)*100) %> %
+        <%var percent =  Math.round((hours/currentUser.goal)*100) %>
+    </p>
+            
+    <div id="myProgress" >
+        
+        <div id="myBar" onclick='move()'> <%= Math.round((hours/currentUser.goal)*100) %>% </div>
+      </div>
 
+    <%}%>
+    
+    
+    
+    
+    </h3>
 </div>
 </div>
+</div>
+
 <script>
+
+
+var i = 0 
+function move() {
+    
+var sump = 0 ;
+    if (i<1) {
+    var elem = document.getElementById("myBar");
+    var goal = <%-JSON.stringify(founduser.goal)%>;
+        
+     var data = <%-JSON.stringify(founduser.data)%>;
+        
+     var j;
+for (j = 0; j < data.length; j++) {
+  sump += data[j].time
+}
+    var hours = sump/60 ;
+    var width = Math.round((hours/goal)*100)
+   
+    
+elem.style.width =  width + "%";
+            i++;
+
+} 
+}
+
+
+
+</script>
+
+
+<script>
+
     $(document).ready(function(){
+        
       $("#stats").click(function(){
         $("#datatable").fadeToggle();
-        
         $("#pop").fadeToggle();
-      
         if ($(this).text() == "Statistics")
        $(this).text("Table")
     else
@@ -121,8 +173,9 @@
         
       );
     });
+
     </script>
-    
+
 
 
 <%- include("partials/footer") %>

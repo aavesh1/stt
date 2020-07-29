@@ -57,6 +57,31 @@ router.get('/logout' , (req ,res)=> {
     res.redirect('/')
 })
 
+
+// Entering Goal
+
+router.put('/:id/goal' , (req , res)=>{
+
+        var newgoal = req.body.goals;
+    User.findByIdAndUpdate(req.params.id ,{ goal : newgoal } , function(err , goal){
+
+        if(err){
+            console.log(err)
+        }
+
+        else{
+
+            res.redirect('/sheets/'+req.params.id)
+        
+        }
+
+    } )
+
+
+})
+
+
+
 //is logged in check
 function isLoggedIn (req , res , next){
     if(req.isAuthenticated()){
