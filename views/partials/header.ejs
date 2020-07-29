@@ -42,7 +42,8 @@
                     <li><a style="color:#005AA7" href="/signup">Sign Up</a>
                     </li> 
                       <%} else {%>
-                        <li><a href="/sheets/<%=currentUser._id%>">Sheets</a></li>    
+                        <li><a href="/sheets/<%=currentUser._id%>">Sheets</a></li>   
+                          <li><a href="/tdl/<%=currentUser._id%>">ToDoList</a></li> 
                         <li><a href="#"> Logged in as <%= currentUser.username.toUpperCase() %></a></li>
                     <li><a href="/logout">Logout</a></li>
                       <%}%>
