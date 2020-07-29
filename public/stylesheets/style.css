@@ -1,86 +1,89 @@
-
-body{
-  background: #ff00cc;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #333399, seagreen); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+body {
+  background: #ff00cc; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #333399,
+    #ff00cc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #333399,
+    seagreen
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.change{
+.change {
   display: none;
 }
 
 #regform {
-  width:97% ; height: 60% ; max-width: 500px ; max-height: 600px;   margin: 25px auto; padding: 25px;   background: linear-gradient(to right, #2f2f31, #454547);  text-align: center;
+  width: 97%;
+  height: 60%;
+  max-width: 500px;
+  max-height: 600px;
+  margin: 25px auto;
+  padding: 25px;
+  background: linear-gradient(to right, #2f2f31, #454547);
+  text-align: center;
 }
 
-
-form{
-  display: inline-block
+form {
+  display: inline-block;
 }
 
 #heading {
-  color:  rgb(0, 196, 65);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: rgb(0, 196, 65);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
- h1 {
-
-     text-align: center;
- }
-
-
-
- a:link {
-    
-    color: white;
-  }
-  
-  
-  a:visited {
-     color: white;
-  }
-  
-  a:hover {
-    color: black;
-  }
-  
-  
-table { 
-    margin: 30px auto;
-/*    width: 65%;*/
-border: 2px solid black;
-
+h1 {
+  text-align: center;
 }
-  
-  td, th {
-    border: 1px solid black;
-    text-align: right;
-    padding: 8px;
 
+a:link {
+  color: white;
 }
- tr{
-        color: #0e61a8;
-    }
 
- tr:nth-child(even) {
-    background-color:#0e61a8;
-    color: white;
+a:visited {
+  color: white;
 }
-#addbtn{
-    background-color: #0e61a8;
+
+a:hover {
+  color: black;
+}
+
+table {
+  margin: 30px auto;
+  /*    width: 65%;*/
+  border: 2px solid black;
+}
+
+td,
+th {
+  border: 1px solid black;
+  text-align: right;
+  padding: 8px;
+}
+tr {
+  color: #0e61a8;
+}
+
+tr:nth-child(even) {
+  background-color: #0e61a8;
+  color: white;
+}
+#addbtn {
+  background-color: #0e61a8;
   float: left;
-  }
-
-.hide{
-
-  display: none;
-}
-.hideinput{
-
-  display: none;
 }
 
+.hide {
+  display: none;
+}
+.hideinput {
+  display: none;
+}
 
 #myProgress {
   margin: 0 auto;

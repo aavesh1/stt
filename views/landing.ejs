@@ -1,33 +1,61 @@
 <%- include("partials/header") %>
 
+<div class="container" style="text-align: center;">
+  <h1
+    class="jumbotron"
+    id="heading"
+    style="
+      text-align: center;
+      margin: 100px auto;
+      max-width: 500px;
+      border-radius: 25px;
+      background: linear-gradient(to right, #2f2f31, #454547);
+    "
+  >
+    Welcome to Study <br />Time Tracker <%if(!currentUser){%>
+    <p style="padding: 30px;">
+      <span style="text-align: center;">
+        <a
+          class="btn btn-lg btn-success"
+          style="padding: 20px; margin: 20px 20px;"
+          href="/login"
+          >LogIn</a
+        >
+      </span>
+      <span>
+        <a
+          class="btn btn-lg btn-success"
+          style="padding: 20px; margin: 20px 20px;"
+          href="/signup"
+          >SignUp</a
+        >
+      </span>
+    </p>
+    <%} else {%>
 
+    <p style="padding: 30px;">
+      <span style="text-align: center;">
+        <a
+          class="btn btn-lg btn-block btn-success"
+          style="padding: 20px;"
+          href="/sheets/<%=currentUser._id%>"
+        >
+          Sheets</a
+        >
+      </span>
+      <span style="text-align: center;">
+        <a
+          class="btn btn-lg btn-block btn-success"
+          style="padding: 20px; margin-top: 14px;"
+          href="/tdl/<%=currentUser._id%>"
+        >
+          To Do List</a
+        >
+      </span>
 
-<div class="container"  style="text-align: center;" >
-    
-    <h1 class="jumbotron" id="heading" style="text-align: center; margin: 100px auto; max-width: 500px; border-radius: 25px; 
-        background: linear-gradient(to right, #2f2f31, #454547)
-    " > Welcome to Study <br/>Time Tracker
-        <%if(!currentUser){%>
-        <p style="padding: 30px;">
-        
-            
-        <span style="text-align: center;" >   <a class="btn btn-lg btn-success " style=" padding: 20px; margin: 20px 20px ;" href="/login">LogIn</a>
-        </span>
-            <span > <a class="btn btn-lg btn-success" style=" padding: 20px; margin: 20px 20px;" href="/signup">SignUp</a>
-            </span>
-            </p><%} else {%>
-
-                <p style="padding: 30px;">
-        
-            
-                    <span style="text-align: center;" > <a class="btn btn-lg btn-block btn-success" style=" padding: 20px; " href="/sheets/<%=currentUser._id%>"> Sheets</a>
-                    </span>
-                        
-                    <%}%>
-
-    </h1>
-        
- 
+      <%}%>
+    </p>
+  </h1>
 </div>
 
 <%- include("partials/footer") %>

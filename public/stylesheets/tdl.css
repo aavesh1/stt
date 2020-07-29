@@ -1,0 +1,66 @@
+h1 {
+  background: #2980b9;
+  color: white;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+input {
+  background: #f7f7f7;
+  width: 100%;
+  padding: 8px 8px 8px 14px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border: 3px rgba(0, 0, 0, 0);
+}
+
+input:focus {
+  background: white;
+  border: 3px solid #2980b9;
+  outline: none;
+}
+#tdlul {
+  list-style: none;
+  width: 100%;
+  max-width: 420px;
+  padding: 0;
+}
+
+#tdllist {
+  float: right;
+  background: white;
+  width: 100%;
+  max-width: 420px;
+  height: 40 px;
+  line-height: 40px;
+  color: #666;
+}
+#tdllist :nth-child(even) {
+  background-color: #0e61a8;
+  color: white;
+}
+
+.fa-plus {
+  float: right;
+  margin-left: 5%;
+  margin-right: auto;
+  margin-top: 2px;
+}
+
+#tdlcontainer {
+  width: 80%;
+  max-width: 420px;
+  margin: 0 auto;
+  margin-top: 5%;
+  background: #f7f7f7;
+  box-shadow: 0 0 460px rgba(0, 0, 0, 0.5);
+}
+
+.completed {
+  color: gray;
+  text-decoration: line-through;
+}
+
+input {
+  display: none;
+}
