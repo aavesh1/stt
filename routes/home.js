@@ -60,7 +60,7 @@ router.get('/logout' , (req ,res)=> {
 
 // Entering Goal
 
-router.put('/:id/goal' , (req , res)=>{
+router.put('/:id/goal' , isLoggedIn,  (req , res)=>{
 
         var newgoal = req.body.goals;
     User.findByIdAndUpdate(req.params.id ,{ goal : newgoal } , function(err , goal){
@@ -70,7 +70,7 @@ router.put('/:id/goal' , (req , res)=>{
         }
 
         else{
-
+            req.flash("success" , "Goal Updated Successfully")
             res.redirect('/sheets/'+req.params.id)
         
         }

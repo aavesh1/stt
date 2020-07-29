@@ -1,5 +1,6 @@
 <%- include("partials/header") %>
-<div class="container">
+<body onload="move();"
+<div class="container" >
     <div style="text-align: center; color : white">
     
         <h1> Welcome to STT sheets</h1>
@@ -97,8 +98,7 @@
 
 
     <h3 class="jumbotron" style=" background: lightcyan; text-align: center; color: #0e61a8 ; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
-        You have stufied for <%=days%> days. <br /> Keep up the good work
-    
+        Days:  <%=days%>
     
         <% if(currentUser.goal == 0) {%>
         <form  action="/<%=currentUser._id%>/goal?_method=put" method="POST"   > 
@@ -106,15 +106,37 @@
             <input type="submit">
             </form>
         <%}else{%>
-    <p style="margin-top:20px ;"> <strong> Your goal is : <%=currentUser.goal%> hours</strong> </p>
+    <p style="margin-top:20px ;"> <strong> Your goal is : <%=currentUser.goal%> hours </strong>
+        
+        <button class="btn btn-warning btn-sm" id="hidebtn"  ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> </button>
+       <div class="hideinput" id="hideinput">
+        <form  action="/<%=currentUser._id%>/goal?_method=put" method="POST"   > 
+            <input type="number" name="goals" placeholder="Update your goal">
+             <input class="btn btn-primary"type="submit">
+             </form>
+
+            </div>
+
     <p id="percent"   style="color: #0e61a8;"> Current Progress : <%= Math.round((hours/currentUser.goal)*100) %> %
-        <%var percent =  Math.round((hours/currentUser.goal)*100) %>
+            
     </p>
+            
+
+        <%var percent =  Math.round((hours/currentUser.goal)*100) %>
+        <br />
+        <%if(percent > 100){%>
+        <button class="btn btn-danger" id="hidebtn" style="margin-top: 10px;"> Please Update Your Goal </button>
+        <%}else{%>
             
     <div id="myProgress" >
         
         <div id="myBar" onclick='move()'> <%= Math.round((hours/currentUser.goal)*100) %>% </div>
       </div>
+<%}%>
+
+
+
+
 
     <%}%>
     
@@ -146,7 +168,6 @@ for (j = 0; j < data.length; j++) {
     var hours = sump/60 ;
     var width = Math.round((hours/goal)*100)
    
-    
 elem.style.width =  width + "%";
             i++;
 
@@ -161,7 +182,12 @@ elem.style.width =  width + "%";
 <script>
 
     $(document).ready(function(){
-        
+          
+        $("#hidebtn").click(function(){
+            $("#hideinput").fadeToggle();
+        });
+
+
       $("#stats").click(function(){
         $("#datatable").fadeToggle();
         $("#pop").fadeToggle();

@@ -76,6 +76,11 @@ border: 2px solid black;
 
   display: none;
 }
+.hideinput{
+
+  display: none;
+}
+
 
 #myProgress {
   margin: 0 auto;
