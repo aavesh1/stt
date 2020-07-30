@@ -1,23 +1,6 @@
 <%- include("partials/header") %>
 <link rel="stylesheet" href="/stylesheets/tdl.css" />
-<style>
-  span {
-    background: #e74c3c;
-    height: 40px;
-    margin-right: 20px;
-    text-align: center;
-    color: white;
-    width: 0px;
-    display: inline-block;
-    transition: 0.2s linear;
-    opacity: 0;
-  }
 
-  li:hover span {
-    width: 40px;
-    opacity: 1;
-  }
-</style>
 <div id="tdlcontainer">
   <h1 style="margin-top: 8px;">
     To Do List <i class="fa fa-plus" aria-hidden="true"></i>
@@ -37,7 +20,7 @@
       value="2020-0<%=new Date().getMonth()+1%>-<%=new Date().getDate()%>"
       required
     />
-    <input type="submit" />
+    <input type="submit" id="sbmt" />
   </form>
 
   <% founduser.task.forEach(function(task){%>
