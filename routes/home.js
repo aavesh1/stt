@@ -19,8 +19,10 @@ router.get('/signup' , (req , res) =>
 
 router.post('/signup' , (req, res) =>{
 
-    var newUser = new User({username : req.body.username})
-
+    var newUser = new User(
+      { username: req.body.username }
+    );
+    
     User.register(newUser , req.body.password , function(err , user){
         if(err){console.log(err)
             req.flash('error', 'Username is not available')

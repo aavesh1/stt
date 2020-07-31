@@ -6,7 +6,8 @@
         <div style="text-align: center; color : white">
 
             <h1> Welcome to STT sheets</h1>    
-            <p>Here you will find all your previous data</p>
+            <p>Here you will find all your previous data </p>
+            <% var totaltime = founduser.data[(founduser.data.length-1)].totaltime%>
 
         </div>
 
@@ -85,8 +86,8 @@
 
                     <%})%>
                     <tr>
-                        <td style="text-align: left;"> Total Time Studied (In Mins)</td>
-                        <td><%=sum%> (mins)</td>
+                        <td style="text-align: left;"> Total Time Studied (In Mins) </td>
+                        <td><%=totaltime%> (mins)  </td>
                     </tr>
 
                     <tr>

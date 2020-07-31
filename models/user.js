@@ -16,7 +16,12 @@ var userSchema = new mongoose.Schema({
       ref: "Task",
     },
   ],
-
+  list : [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "List",
+    },
+  ],
   goal: Number,
 });
 userSchema.plugin(passportLocalMongoose);

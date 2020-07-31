@@ -72,10 +72,17 @@
               <p> Leaderboard</p>
               <ul style="width: 100%;">
                 <li style="width: 100%;"><%=currentUser.goal%></li>
-                <li><%=currentUser.goal%></li>
-                <li><%=currentUser.goal%></li>
-                <li><%=currentUser.goal%></li>
+               
+                <form action="/<%=currentUser._id%>/addtolist" method="POST">
+                  <input readonly name="username" value="<%=currentUser.username%> " />
+                  <input name="score" />
+                  <button class="btn btn-primary btn-block">Join</button>                
+              
+              
+                </form>
               </ul>
+
+
             </div>
           </div>
           <%}%>

@@ -5,7 +5,17 @@ var User = require("../models/user.js");
 
 //To view Add new data form
 router.get("/sheets/:id/new", isLoggedIn, (req, res) => {
-  res.render("new");
+  
+     User.findById(req.params.id)
+       .populate("data")
+       .exec(function (err, founduser) {
+         if (err) {
+           console.log(err);
+         } else {
+           res.render("new", { founduser: founduser });
+         }
+       });
+
 });
 
 //to add new data
@@ -14,7 +24,8 @@ router.post("/sheets/:id/new", isLoggedIn, (req, res) => {
   var date = req.body.date;
   var topic = req.body.topic;
   var time = req.body.time;
-  var newData = { date: date, topic: topic, time: time, user: user };
+  var totaltime = Number(req.body.totaltime) + Number(req.body.time) ;
+  var newData = { date: date, topic: topic, time: time, user: user , totaltime: totaltime };
   User.findById(req.params.id, function (err, user) {
     if (err) {
       console.log(err);

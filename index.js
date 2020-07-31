@@ -16,10 +16,12 @@ var flash = require("connect-flash");
 var User = require("./models/user");
 var Data = require("./models/data");
 var Task = require("./models/task.js");
+var List = require("./models/list.js");
+
 var sheetsRoutes = require("./routes/sheets.js");
 var homeRoutes = require("./routes/home.js");
 var tdlRoutes = require("./routes/tdl.js");
-
+var leaderboardroutes = require("./routes/leeaderboard.js");
 app.set("view engine", "ejs");
 app.use(flash());
 //USE commands
@@ -56,4 +58,5 @@ passport.deserializeUser(User.deserializeUser());
 app.use(sheetsRoutes);
 app.use(homeRoutes);
 app.use(tdlRoutes);
+app.use(leaderboardroutes);
 app.listen(3002);
