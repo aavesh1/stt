@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var Task = require("../models/task.js");
 var User = require("../models/user.js");
+const { json } = require("body-parser");
 
 // ADDING TASK
 router.post("/tdl/newtask/:id", isLoggedIn, (req, res) => {
@@ -56,6 +57,19 @@ router.delete("/:id/deletetask/:user", isLoggedIn, (req, res) => {
     }
   });
 });
+
+//API
+
+router.get('/tasklist' , (req,res)=>{
+    Task.find({} , function(err , task){
+      if(err){console.log(err)}
+      else{res.json(task)}
+    })
+})
+
+router.get('/ajaxtest' , (req,res)=>{
+  res.render('tasklist')
+})
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {

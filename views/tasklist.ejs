@@ -1,0 +1,32 @@
+<body>
+<h1>
+this is a tasklist working with Ajax
+</h1>
+
+<button id="btn">
+    show task
+</button>
+
+<div id="tasklist">
+
+</div>
+<script>
+    var btn = document.getElementById('btn')
+    var div = document.getElementById('tasklist')
+btn.addEventListener('click' , function(){
+    
+    var XHR = new XMLHttpRequest();
+    XHR.onreadystatechange = function(){
+        if(XHR.readyState == 4 ){
+            var task = JSON.parse(XHR.responseText)
+                console.log(task)
+            div.innerHTML = JSON.stringify(task , null , 4)
+           
+        
+        }
+    }
+    XHR.open('get', 'http://localhost:3002/aavesh/datalist')
+    XHR.send()
+})
+</script>
+</body>

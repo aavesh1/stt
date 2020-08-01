@@ -61,32 +61,7 @@
       </div>
      
     </nav>
-        <% if(currentUser) {%>
-          <div class="sidebar" style="margin-top: 0px ;">
-            <a href="/logout">Logout</a>
-            <a href="/tdl/<%=currentUser._id%>">To Do List</a>
-
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
-            <div id='leaderboard'>
-              <p> Leaderboard</p>
-              <ul style="width: 100%;">
-                <li style="width: 100%;"><%=currentUser.goal%></li>
-               
-                <form action="/<%=currentUser._id%>/addtolist" method="POST">
-                  <input readonly name="username" value="<%=currentUser.username%> " />
-                  <input name="score" />
-                  <button class="btn btn-primary btn-block">Join</button>                
-              
-              
-                </form>
-              </ul>
-
-
-            </div>
-          </div>
-          <%}%>
-      
+       
 
     <div
       class="container"
