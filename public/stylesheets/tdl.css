@@ -74,7 +74,7 @@ input {
   display: none;
 }
 
-span {
+.hid {
   background: #e74c3c;
   height: 40px;
   margin-right: 20px;
