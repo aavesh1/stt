@@ -29,3 +29,46 @@ to be added after </nav> in header file
           </div>
           <%}%>
       
+// AJAX API DATA
+
+//SHEETSAPI
+router.get('/:name/datalist', (req, res) => {
+  var name = req.params.name
+  Data.find({user : name}, function (err, data) {
+    if (err) { console.log(err) }
+    else { res.json(data) }
+  })
+})
+
+//todolistAPIs
+
+router.get('/todos/api' , (req,res)=>{
+    Task.find({} , function(err , task){
+      if(err){console.log(err)}
+      else{res.json(task)}
+    })
+})
+
+router.get('/todos' , (req,res)=>{
+  res.render('tasklist')
+})
+
+
+/*  XHR reuest demo */
+    var btn = document.getElementById('btn')
+    var div = document.getElementById('tasklist')
+btn.addEventListener('click' , function(){
+    
+    var XHR = new XMLHttpRequest();
+    XHR.onreadystatechange = function(){
+        if(XHR.readyState == 4 ){
+            var task = JSON.parse(XHR.responseText)
+                
+            div.innerHTML = JSON.stringify(task[0] , null , 4)
+           
+        
+        }
+    }
+    XHR.open('get', 'http://localhost:3002/tasklist')
+    XHR.send()
+})*/

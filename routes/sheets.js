@@ -111,14 +111,6 @@ router.delete("/delete/:id", isLoggedIn, (req, res) => {
     }
   });
 });
-//API
-router.get('/:name/datalist', (req, res) => {
-  var name = req.params.name
-  Data.find({user : name}, function (err, task) {
-    if (err) { console.log(err) }
-    else { res.json(task) }
-  })
-})
 
 
 //is logged in check

@@ -2,8 +2,9 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+const url = "mongodb+srv://aavesh:nsut@2000@cluster0.9tmhq.mongodb.net/stt?retryWrites=true&w=majority"
 mongoose.connect(
-  "mongodb+srv://aavesh:nsut@2000@cluster0.9tmhq.mongodb.net/stt?retryWrites=true&w=majority",
+ url ,
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 var passport = require("passport");
@@ -21,7 +22,7 @@ var List = require("./models/list.js");
 var sheetsRoutes = require("./routes/sheets.js");
 var homeRoutes = require("./routes/home.js");
 var tdlRoutes = require("./routes/tdl.js");
-var leaderboardroutes = require("./routes/leeaderboard.js");
+var leaderboardroutes = require("./routes/leaderboard.js");
 app.set("view engine", "ejs");
 app.use(flash());
 //USE commands

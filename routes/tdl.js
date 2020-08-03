@@ -58,18 +58,7 @@ router.delete("/:id/deletetask/:user", isLoggedIn, (req, res) => {
   });
 });
 
-//APIs
 
-router.get('/todos/api' , (req,res)=>{
-    Task.find({} , function(err , task){
-      if(err){console.log(err)}
-      else{res.json(task)}
-    })
-})
-
-router.get('/todos' , (req,res)=>{
-  res.render('tasklist')
-})
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {

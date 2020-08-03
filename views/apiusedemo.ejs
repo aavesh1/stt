@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+
+<h1> Tasklist will appear here
+</h1>
+
+<ul class="list">
+</ul>
+
+
+<script>
+    //get request using ajax
+$(document).ready(function(){
+    $.getJSON("/todos/api")
+    .then(addToDos)
+})
+function addToDos(todos){
+    todos.forEach(function(todo){
+       var newtodo = $ ('<li>' + todo.task + '</li>')
+        $('.list').append(newtodo)
+    })
+}
+
+
+</script>
+
+<%- include("partials/footer") %>
