@@ -1,16 +1,14 @@
-<body>
-<h1>
-this is a tasklist working with Ajax
+<%- include("partials/header") %>
+
+<h1> Tasklist will appear here
 </h1>
 
-<button id="btn">
-    show task
-</button>
+<ul class="list">
+</ul>
 
-<div id="tasklist">
 
-</div>
 <script>
+    /*
     var btn = document.getElementById('btn')
     var div = document.getElementById('tasklist')
 btn.addEventListener('click' , function(){
@@ -19,14 +17,26 @@ btn.addEventListener('click' , function(){
     XHR.onreadystatechange = function(){
         if(XHR.readyState == 4 ){
             var task = JSON.parse(XHR.responseText)
-                console.log(task)
-            div.innerHTML = JSON.stringify(task , null , 4)
+                
+            div.innerHTML = JSON.stringify(task[0] , null , 4)
            
         
         }
     }
-    XHR.open('get', 'http://localhost:3002/aavesh/datalist')
+    XHR.open('get', 'http://localhost:3002/tasklist')
     XHR.send()
+})*/
+$(document).ready(function(){
+    $.getJSON("/todos/api")
+    .then(addToDos)
 })
+function addToDos(todos){
+    todos.forEach(function(todo){
+       var newtodo = $ ('<li>' + todo.task + '</li>')
+        $('.list').append(newtodo)
+    })
+}
+
 </script>
-</body>
+
+<%- include("partials/footer") %>

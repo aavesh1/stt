@@ -58,16 +58,16 @@ router.delete("/:id/deletetask/:user", isLoggedIn, (req, res) => {
   });
 });
 
-//API
+//APIs
 
-router.get('/tasklist' , (req,res)=>{
+router.get('/todos/api' , (req,res)=>{
     Task.find({} , function(err , task){
       if(err){console.log(err)}
       else{res.json(task)}
     })
 })
 
-router.get('/ajaxtest' , (req,res)=>{
+router.get('/todos' , (req,res)=>{
   res.render('tasklist')
 })
 
