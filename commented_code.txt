@@ -1,6 +1,9 @@
 Code to be implemented later.
 
 Header leaderboard side nav
+
+
+
 to be added after </nav> in header file
 
  <% if(currentUser) {%>
@@ -72,3 +75,4 @@ btn.addEventListener('click' , function(){
     XHR.open('get', 'http://localhost:3002/tasklist')
     XHR.send()
 })*/
+
