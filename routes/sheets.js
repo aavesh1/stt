@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var Data = require("../models/data.js");
 var User = require("../models/user.js");
+var Task = require("../models/task.js");
 
 //To view Add new data form
 router.get("/sheets/:id/new", isLoggedIn, (req, res) => {
@@ -53,6 +54,7 @@ router.post("/sheets/:id/new", isLoggedIn, (req, res) => {
 router.get("/sheets/:id", isLoggedIn, (req, res) => {
   User.findById(req.params.id)
     .populate("data")
+    .populate("task")
     .exec(function (err, founduser) {
       if (err) {
         console.log(err);
