@@ -15,7 +15,7 @@
     Welcome to Study <br />Time Tracker <%if(!currentUser){%>
     <p style="padding: 30px;">
       <span style="text-align: center;">
-        <a
+        <a id="btnpress"
           class="btn btn-lg btn-success"
           style="padding: 20px; margin: 20px 20px;"
           href="/login"
@@ -23,7 +23,7 @@
         >
       </span>
       <span>
-        <a
+        <a id="btnpress"
           class="btn btn-lg btn-success"
           style="padding: 20px; margin: 20px 20px;"
           href="/signup"
@@ -35,7 +35,7 @@
 
     <p style="padding: 30px;">
       <span style="text-align: center;">
-        <a
+        <a  id="btnpress"
           class="btn btn-lg btn-block btn-success"
           style="padding: 20px;"
           href="/sheets/<%=currentUser._id%>"
@@ -44,7 +44,7 @@
         >
       </span>
       <span style="text-align: center;">
-        <a
+        <a  id="btnpress"
           class="btn btn-lg btn-block btn-success"
           style="padding: 20px; margin-top: 14px;"
           href="/tdl/<%=currentUser._id%>"

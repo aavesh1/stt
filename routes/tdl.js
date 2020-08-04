@@ -8,7 +8,8 @@ const { json } = require("body-parser");
 router.post("/tdl/newtask/:id", isLoggedIn, (req, res) => {
   var task = req.body.task;
   var date = req.body.date;
-  var newtask = { task: task, date: date };
+  var username = req.body.username;
+  var newtask = { task: task, date: date , username : username };
   User.findById(req.params.id, function (err, user) {
     if (err) {
       console.log(err);
