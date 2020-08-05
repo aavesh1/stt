@@ -19,10 +19,40 @@
     $(document).ready(function () {
       $(".hide").fadeIn(1200).removeClass("hide");
 
+       var theme = localStorage.getItem('theme')
+      if( theme === 'light') {
+      
+      $('body').addClass('light');
+       $('#themetext').text('Light')
+     
+      }
+      else{
+      $('body').removeClass('light');
+        
+      }
+
+
         
     $('#theme').click(function(){
+      var ctheme = localStorage.getItem('theme')
+     
+      if( ctheme !== 'light') {
+      localStorage.setItem('theme' , 'light')
+      $('body').toggleClass('light');
+       $('#themetext').text('Light')
+     
+        
+      }
+      else {
 
+        localStorage.setItem('theme' , 'dark')
         $('body').toggleClass('light');
+        
+           $('#themetext').text('Dark');
+    
+      }
+        
+    
 
     });
 
@@ -59,13 +89,14 @@
           <li><a href="/login">Login</a></li>
           <li><a href="/signup">Sign Up</a></li>
           <%} else {%>
-          <li><a href="/sheets/<%=currentUser._id%>">Sheets</a></li>
-          <li><a href="/tdl/<%=currentUser._id%>">ToDoList</a></li>
-          <li>
-            <a href="#">
-              Logged in as <%= currentUser.username.toUpperCase() %></a>
+             <li>
+            <a href="/<%=currentUser._id%>/ctl">
+              Welcome <i><%= currentUser.username.toUpperCase() %></i></a>
           </li>
-          <li id="theme"><a href='#'>Theme</a></li>
+            <li><a href="/sheets/<%=currentUser._id%>">Sheets</a></li>
+          <li><a href="/tdl/<%=currentUser._id%>">ToDoList</a></li>
+         
+          <li id="theme"><a id="themetext"  href='#'>Dark</a></li>
           <li><a href="/logout">Logout</a></li>
           <%}%>
           </ul>
