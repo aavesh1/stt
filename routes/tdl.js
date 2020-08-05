@@ -114,18 +114,20 @@ router.get('/:id/ctl' , isLoggedIn , (req , res)=>{
 router.put('/:id/deletectask/:user' , (req , res) =>{
   var tid = req.params.id ;
   var uid = req.params.user;
-  User.findById(uid , function(err , founduser){
-
+  
+  User.update({_id : uid} , { "$pull" : {"completedtasks" : {"_id" : tid}}},
+  
+  (err , result) => {
     if(err){console.log(err)}
-
     else{
+      res.redirect('/'+uid+'/ctl') ;
+    }
 
-    founduser.update( {} , 
-      { $pull: {completedtasks : {_id : tid} }}
-    ) ;
-      res.redirect('/'+uid+'/ctl')
+
   }
-  } )
+
+  )
+
 
 })
 

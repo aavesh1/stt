@@ -23,7 +23,7 @@ var userSchema = new mongoose.Schema({
       ref: "List",
     },
   ],
-  goal: Number,
+  goal: Number, 
 });
 userSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model("User", userSchema);

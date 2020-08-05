@@ -18,7 +18,20 @@
   <script>
     $(document).ready(function () {
       $(".hide").fadeIn(1200).removeClass("hide");
+
+        
+    $('#theme').click(function(){
+
+        $('body').toggleClass('light');
+
     });
+
+
+
+
+
+    });
+
   </script>
 
 
@@ -52,6 +65,7 @@
             <a href="#">
               Logged in as <%= currentUser.username.toUpperCase() %></a>
           </li>
+          <li id="theme"><a href='#'>Theme</a></li>
           <li><a href="/logout">Logout</a></li>
           <%}%>
           </ul>

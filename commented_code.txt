@@ -80,3 +80,30 @@ btn.addEventListener('click' , function(){
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
  <% var totaltime = founduser.data[(founduser.data.length-1)].totaltime%>
+/////////////////
+
+if(currentUser !== null){
+      var theme = <%- JSON.stringify(currentUser.theme) %> ;
+         var uid =  <%- JSON.stringify(currentUser._id) %> ;
+        if(theme !== 'dark') {
+        
+          $('body').toggleClass('light');
+       
+        }
+
+    $('#theme').click(function(){
+
+      if(theme === dark){
+
+        $.ajax.put( '/'+uid+'/updatetheme' , { theme :'light'})
+
+          .then(function(){
+            console.log('Updated')
+          })
+
+      } 
+      else {
+
+
+      }
+    });
