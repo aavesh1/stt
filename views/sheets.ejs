@@ -8,8 +8,7 @@
             <h1> Welcome to STT sheets</h1>    
             <p>Here you will find all your previous data </p>
             
-        <% var totaltime = founduser.data[(founduser.data.length-1)].totaltime%>
-
+       
         </div>
 
 
@@ -18,7 +17,7 @@
             <div class="text-right">
                 <a  id="btnpress" class="btn btn-primary" href="/sheets/<%=currentUser._id%>/new"> Add Data </a></button>
                 <a  id="btnpress" class="btn btn-primary" href="/sheets/<%=currentUser._id%>/graph"> See Graph </a></button>
-                <button  id="btnpress"  class="btn btn-primary" id="stats">Statistics</button>
+                <button  class="btn btn-primary" id="stats">Statistics</button>
 
             </div>
 
@@ -148,11 +147,6 @@
                         <div id="myBar"> <%= Math.round((hours/currentUser.goal)*100) %>% </div>
                     </div>
                     <%}%>
-
-
-
-
-
     <%}%>
 
 

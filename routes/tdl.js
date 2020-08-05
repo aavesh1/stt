@@ -8,6 +8,7 @@ const { json } = require("body-parser");
 router.post("/tdl/newtask/:id", isLoggedIn, (req, res) => {
   var task = req.body.task;
   var date = req.body.date;
+  
   var username = req.body.username;
   var newtask = { task: task, date: date , username : username };
   User.findById(req.params.id, function (err, user) {
@@ -58,6 +59,76 @@ router.delete("/:id/deletetask/:user", isLoggedIn, (req, res) => {
     }
   });
 });
+
+// Marking a task complete
+router.put('/:id/marktask/:user', isLoggedIn, (req, res) => {
+var task = req.body.task ;
+var time = req.body.time ;
+var uid = req.params.user;
+  var ctask = {task : task , time : time}
+
+  User.findByIdAndUpdate({ _id:req.params.user }, 
+    
+    
+    { $push: { completedtasks : ctask } },
+    function (error, success) {
+      if (error) {
+        console.log(error);
+      } 
+      else {
+
+
+        Task.findByIdAndRemove(req.params.id, function (err, deleted) {
+          if (err) {
+            res.redirect("/");
+          } else {
+            req.flash("success", "Task added to completed tasks list");
+            res.redirect("/tdl/" + uid);
+          }
+        });    
+    }
+    
+    }
+    
+    )
+
+})
+// Viewing completed tasks
+
+router.get('/:id/ctl' , isLoggedIn , (req , res)=>{
+
+  User.findById(req.params.id , function(err , founduser){
+
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("ctl", { founduser: founduser });
+    }
+  });
+   
+  }
+)
+
+// Deleting Completed Tasks
+
+router.put('/:id/deletectask/:user' , (req , res) =>{
+  var tid = req.params.id ;
+  var uid = req.params.user;
+  User.findById(uid , function(err , founduser){
+
+    if(err){console.log(err)}
+
+    else{
+
+    founduser.update( {} , 
+      { $pull: {completedtasks : {_id : tid} }}
+    ) ;
+      res.redirect('/'+uid+'/ctl')
+  }
+  } )
+
+})
+
 
 
 

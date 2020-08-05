@@ -1,0 +1,38 @@
+
+<%- include("partials/header") %>
+
+<link rel="stylesheet" href="/stylesheets/ctl.css" />
+
+<div id="tdlcontainer">
+  <h1 style="margin-top: 8px;">
+    Completed Tasks 
+  </h1>
+  
+  
+  <% founduser.completedtasks.forEach(function(task){%>
+    
+  <ul id="tdlul" style="list-style-type: none; ">
+    <li class="list" id="tdllist" >
+          <span class="hid"> 
+          <form
+        action="/<%=task._id%>/deletectask/<%=currentUser._id%>?_method=put"
+        method="POST"
+      >
+      
+          <button class="btn" style="background: none;">
+            <i class="fa fa-trash"></i>
+          </button>
+       </form>
+        
+        </span>
+     <span style="margin-left: 10px;"><strong> <%=task.task%> </strong> Completed On <%=task.time%></span>
+    </li>
+  </ul>
+  <%})%>
+
+ 
+</div>
+ 
+
+<script src="/js/tdllogic.js"></script>
+<%- include("partials/footer") %>

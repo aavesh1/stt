@@ -69,15 +69,14 @@ input:focus {
   color: gray;
   text-decoration: line-through;
 }
-
-input {
+/*
+#top input {
   display: none;
-}
+}*/
 
 .hid {
   background: #e74c3c;
   height: 40px;
-  margin-right: 20px;
   text-align: center;
   color: white;
   width: 0px;
@@ -98,6 +97,6 @@ li:hover span {
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 3px;
-  border-radius: 12px;
+  /*border-radius: 12px;*/
   text-transform: uppercase;
 }
