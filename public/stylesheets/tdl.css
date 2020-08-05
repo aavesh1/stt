@@ -22,7 +22,7 @@ input:focus {
 #tdlul {
   list-style: none;
   width: 100%;
-  max-width: 420px;
+  max-width: 520px;
   padding: 0px;
 }
 
@@ -32,12 +32,12 @@ input:focus {
   float: right;
   background: white;
   width: 100%;
-  max-width: 420px;
+  max-width: 520px;
   height: 40 px;
   line-height: 40px;
   color: #666;
   border-bottom: #88beee 1px dotted;
-
+  line-height: 20px;
 }
 #tdlul :nth-child(even) {
   background-color:  rgb(0, 196, 65);
@@ -61,8 +61,8 @@ input:focus {
 }
 
 #tdlcontainer {
-  width: 80%;
-  max-width: 420px;
+  width: 90%;
+  max-width: 520px;
   margin: 0 auto;
   margin-top: 5%;
   background: #f7f7f7;

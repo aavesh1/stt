@@ -3,9 +3,10 @@
 
 <div id="tdlcontainer">
   <h1 style="margin-top: 8px;">
-    To Do List <i class="fa fa-plus" aria-hidden="true"></i>
+    To Do List 
+    <i class="fa fa-plus" aria-hidden="true"></i>
   </h1>
-  <form id="top" action="/tdl/newtask/<%=currentUser._id%>" method="POST" style="display: none;">
+  <form id="top" action="/tdl/newtask/<%=currentUser._id%>" method="POST" style="display: none; width: 100%;">
     <input 
       class="tdl"
       type="text"
@@ -20,6 +21,8 @@
       name="date"
       required
     />
+      
+
     <div style="display: none;">
     <input type="text" name="username" value="<%=currentUser.username%>">
       </div>
@@ -57,7 +60,7 @@
         method="POST"
       >
       <input name="task" value='<%=task.task%>' style="display: none;"> </input>
-      <input id="time" name="time" style="display: none;">
+      <input id="time" name="time" value="" style="display: none;">
              </input>
       
           <button class="btn" style="background: none;">
